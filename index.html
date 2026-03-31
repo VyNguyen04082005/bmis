@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vietnamese Foods</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Times New Roman", Times, serif;
+      color: #222;
+      background: linear-gradient(to bottom, #fdf8f3, #f6ede4);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+      background: linear-gradient(135deg, #8b0000, #b22222);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 46px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 21px;
+      margin-top: 12px;
+    }
+
+    nav {
+      background: #a52a2a;
+      padding: 16px 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.18);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 18px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.3s;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-2px);
+    }
+
+    .food-section {
+      padding: 50px 0;
+      border-bottom: 3px solid #dcc5b2;
+      animation: fadeInUp 1s ease;
+    }
+
+    .section-header {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #a52a2a, #c0392b);
+      color: white;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .section-header p {
+      margin-top: 10px;
+      font-size: 19px;
+    }
+
+    .container {
+      width: 88%;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.98);
+      padding: 28px;
+      margin-bottom: 28px;
+      border-radius: 15px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.10);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    h3 {
+      color: #a52a2a;
+      margin-top: 0;
+      font-size: 29px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 19px;
+    }
+
+    ul {
+      line-height: 1.9;
+      padding-left: 24px;
+      font-size: 19px;
+    }
+
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .photos img {
+      width: 100%;
+      max-width: 420px;
+      height: 280px;
+      border-radius: 14px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.14);
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .photos img:hover {
+      transform: scale(1.03);
+    }
+
+    .video {
+      text-align: center;
+    }
+
+    .video-link {
+      position: relative;
+      display: block;
+      width: 80%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .video-link img {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.14);
+      display: block;
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 42px;
+      height: 42px;
+      background: rgba(165, 42, 42, 0.88);
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .play-icon::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 53%;
+      transform: translate(-50%, -50%);
+      border-style: solid;
+      border-width: 7px 0 7px 12px;
+      border-color: transparent transparent transparent white;
+    }
+
+    .video-link:hover .play-icon {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    .video iframe {
+      width: 100%;
+      max-width: 720px;
+      height: 405px;
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.14);
+    }
+
+    .top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #a52a2a;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 16px;
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .top-btn:hover {
+      background: #8b0000;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      background: #8b0000;
+      color: white;
+      padding: 20px;
+      font-size: 18px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .section-header h2 {
+        font-size: 28px;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px auto;
+        width: fit-content;
+      }
+
+      .photos img {
+        height: 220px;
+      }
+
+      .video iframe {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero" id="top">
+    <h1>🍽 Vietnamese Foods</h1>
+    <p>Three Delicious and Popular Dishes from Vietnam</p>
+  </div>
+
+  <nav>
+    <a href="#bunbo">🍜 Bún Bò Huế</a>
+    <a href="#nuichien">🍝 Nui Chiên</a>
+    <a href="#banhcanh">🥣 Bánh Canh</a>
+  </nav>
+
+  <section class="food-section" id="bunbo">
+    <div class="section-header">
+      <h2>🍜 Bún Bò Huế</h2>
+      <p>A Famous and Flavorful Vietnamese Noodle Soup</p>
+    </div>
+
+    <div class="container">
+      <div class="box">
+        <h3>About Bún Bò Huế</h3>
+        <p>
+          Bún Bò Huế is one of the most famous traditional dishes in Vietnam.
+          It comes from Huế, a historic city in central Vietnam.
+        </p>
+        <p>
+          This dish is known for its rich broth, spicy taste, and tender beef.
+          Compared with pho, Bún Bò Huế has a stronger flavor and a more fragrant aroma.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Main Ingredients</h3>
+        <ul>
+          <li>Beef</li>
+          <li>Rice noodles</li>
+          <li>Broth</li>
+          <li>Lemongrass</li>
+          <li>Chili</li>
+          <li>Vegetables and herbs</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Why People Like Bún Bò Huế</h3>
+        <p>
+          Many people enjoy Bún Bò Huế because it is spicy, rich, and full of flavor.
+          It is a warm and satisfying dish for lunch or dinner.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Photos of Bún Bò Huế</h3>
+        <div class="photos">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%BAn%20b%C3%B2%20Hu%E1%BA%BF.jpg" alt="Bun Bo Hue bowl">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bun%20Bo%20Hue%20Homemade.jpg" alt="Homemade Bun Bo Hue">
+        </div>
+      </div>
+
+      <div class="box video">
+        <h3>How to Make Bún Bò Huế</h3>
+        <p>Click the thumbnail below to watch the video on YouTube.</p>
+        <a class="video-link" href="https://www.youtube.com/watch?v=6nTn2Wl8D0Q" target="_blank">
+          <img src="https://img.youtube.com/vi/6nTn2Wl8D0Q/hqdefault.jpg" alt="Bún Bò Huế video thumbnail">
+          <span class="play-icon"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="food-section" id="nuichien">
+    <div class="section-header">
+      <h2>🍝 Nui Chiên</h2>
+      <p>A Simple and Tasty Vietnamese Fried Macaroni Dish</p>
+    </div>
+
+    <div class="container">
+      <div class="box">
+        <h3>About Nui Chiên</h3>
+        <p>
+          Nui Chiên is a simple and delicious Vietnamese dish made from fried macaroni.
+          It is popular with students and families because it is quick, affordable, and tasty.
+        </p>
+        <p>
+          This dish is often cooked with eggs, green onions, and pickled vegetables.
+          It can be eaten for breakfast, lunch, or a light meal.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Main Ingredients</h3>
+        <ul>
+          <li>Macaroni (nui)</li>
+          <li>Eggs</li>
+          <li>Oil</li>
+          <li>Green onion</li>
+          <li>Pickled carrot and radish</li>
+          <li>Soy sauce or dipping sauce</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Why People Like Nui Chiên</h3>
+        <p>
+          Many people like Nui Chiên because it is easy to cook, soft, and flavorful.
+          The combination of fried macaroni, egg, and pickles makes it both tasty and satisfying.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Photos of Nui Chiên</h3>
+        <div class="photos">
+          <img src="https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/kien-thuc/cach-lam-nui-chien-trung/cach-lam-nui-chien-trung-4.jpg" alt="Nui chien trung Vietnamese fried macaroni with egg">
+          <img src="https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/kien-thuc/cach-lam-nui-chien-trung/cach-lam-nui-chien-trung-9.jpg" alt="Cooking nui chien trung in a pan">
+        </div>
+      </div>
+
+      <div class="box video">
+        <h3>How to Make Nui Chiên</h3>
+        <p>Click the thumbnail below to watch the video on YouTube.</p>
+        <a class="video-link" href="https://www.youtube.com/watch?v=0jQ5Qz0M4iQ" target="_blank">
+          <img src="https://img.youtube.com/vi/0jQ5Qz0M4iQ/hqdefault.jpg" alt="Nui Chiên video thumbnail">
+          <span class="play-icon"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="food-section" id="banhcanh">
+    <div class="section-header">
+      <h2>🥣 Bánh Canh</h2>
+      <p>A Thick and Hearty Vietnamese Noodle Soup</p>
+    </div>
+
+    <div class="container">
+      <div class="box">
+        <h3>About Bánh Canh</h3>
+        <p>
+          Bánh Canh is a traditional Vietnamese noodle soup made with thick noodles.
+          It is popular in many regions of Vietnam, especially in central and southern areas.
+        </p>
+        <p>
+          The soup is rich and savory, often made with pork, shrimp, or crab.
+          The thick noodles give the dish a special and unique texture.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Main Ingredients</h3>
+        <ul>
+          <li>Thick noodles</li>
+          <li>Pork or seafood</li>
+          <li>Broth</li>
+          <li>Green onion</li>
+          <li>Fish sauce</li>
+          <li>Herbs and chili</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Why People Like Bánh Canh</h3>
+        <p>
+          Many people love Bánh Canh because it is warm, filling, and comforting.
+          The thick noodles make it different from other Vietnamese noodle soups.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Photos of Bánh Canh</h3>
+        <div class="photos">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh%20canh%20cua.jpg" alt="Banh canh cua Vietnamese crab noodle soup">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nh%20canh%20gi%C3%B2%20heo.jpg" alt="Banh canh gio heo Vietnamese noodle soup">
+        </div>
+      </div>
+
+      <div class="box video">
+        <h3>How to Make Bánh Canh</h3>
+        <p>Click the thumbnail below to watch the video on YouTube.</p>
+        <a class="video-link" href="https://www.youtube.com/watch?v=3z2Zr9p3k4Y" target="_blank">
+          <img src="https://img.youtube.com/vi/3z2Zr9p3k4Y/hqdefault.jpg" alt="Bánh Canh video thumbnail">
+          <span class="play-icon"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Simple Website about Vietnamese Foods</p>
+  </footer>
+
+  <a href="#top" class="top-btn">↑ Top</a>
+
+</body>
+</html>
