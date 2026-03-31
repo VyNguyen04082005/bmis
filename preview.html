@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bun Bo - Vietnamese Food</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #222;
+      background-image: linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Bun%20Bo%20Hue%20Homemade.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: rgba(139, 0, 0, 0.85);
+      color: white;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .container {
+      width: 85%;
+      max-width: 1000px;
+      margin: 30px auto;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #a52a2a;
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    ul {
+      line-height: 1.8;
+      padding-left: 20px;
+    }
+
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .photos img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    }
+
+    .video {
+      text-align: center;
+    }
+
+    .video iframe {
+      width: 100%;
+      max-width: 700px;
+      height: 400px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      background: #8b0000;
+      color: white;
+      padding: 18px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .video iframe {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>Bun Bo</h1>
+    <p>A Delicious Vietnamese Noodle Soup</p>
+  </div>
+
+  <div class="container">
+
+    <div class="box">
+      <h2>About Bun Bo</h2>
+      <p>
+        Bun Bo is a famous Vietnamese food. Its full name is Bun Bo Hue.
+        It comes from Hue, a city in Vietnam.
+      </p>
+      <p>
+        Bun Bo is a noodle soup with beef, broth, and vegetables.
+        It has a strong flavor and many people love it.
+      </p>
+    </div>
+
+    <div class="box">
+      <h2>Main Ingredients</h2>
+      <ul>
+        <li>Beef</li>
+        <li>Rice noodles</li>
+        <li>Broth</li>
+        <li>Lemongrass</li>
+        <li>Chili</li>
+        <li>Vegetables and herbs</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Why People Like Bun Bo</h2>
+      <p>
+        Bun Bo is hot, rich, and tasty. The soup smells good and the beef is soft.
+        It is a great meal for lunch or dinner.
+      </p>
+      <p>
+        I like Bun Bo because it is spicy, special, and full of flavor.
+      </p>
+    </div>
+
+    <div class="box">
+      <h2>Photos of Bun Bo</h2>
+      <div class="photos">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/B%C3%BAn%20b%C3%B2%20Hu%E1%BA%BF.jpg" alt="Bun Bo bowl">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bun%20Bo%20Hue%20Homemade.jpg" alt="Homemade Bun Bo">
+      </div>
+    </div>
+
+    <div class="box video">
+      <h2>How to Make Bun Bo</h2>
+      <p>Watch this video to learn how to make Bun Bo Hue.</p>
+      <iframe 
+        src="https://www.youtube.com/embed/eOmQbJljnqE"
+        title="How to make Bun Bo Hue"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Simple Website about Vietnamese Food - Bun Bo</p>
+  </footer>
+
+</body>
+</html>
